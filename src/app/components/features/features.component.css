@@ -10,9 +10,9 @@
   }
   
   .card {
-    background-color: #545353;
+    background-color: #6b6b6b;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     margin: 1.5rem 0;
     padding: 2rem;
     text-align: left;
