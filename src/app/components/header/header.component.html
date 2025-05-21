@@ -1,7 +1,10 @@
 <header>
   <div class="header-container">
     <img src="assets/logomdt.png" alt="logo mardelticket" (click)="goHome()">
-    <button (click)="toggleMenu()">&#9776;</button>
+    <div class="macroMenu">
+      <button (click)="goLogin()" class="btnLogin">Ingresá</button>
+      <button (click)="toggleMenu()" class="btnMenu">&#9776;</button>
+    </div>
   </div>
 
   <div *ngIf="menuAbierto" class="menu">

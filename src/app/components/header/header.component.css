@@ -19,13 +19,14 @@ header img {
   max-width: 10rem;
 }
 
-header button {
+.btnMenu {
   font-size: 1.5rem;
   background: none;
   border: none;
   color: white;
   cursor: pointer;
 }
+
 
 .menu {
   background-color: #F48D25;
@@ -57,4 +58,25 @@ header button {
 .menu a.register:hover{
   color: white;
   background-color: #F48D25;
+}
+
+.btnLogin {
+  background-color: white;
+  color: #512da8;
+  padding: 0.6rem .8rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid white;
+  font-size: .8rem;
+}
+.btnLogin:hover {
+  color: white;
+  background-color:#512da8 ;
+}
+
+.macroMenu{
+  display: flex;
+  align-items: center;
 }
