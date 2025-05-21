@@ -1,5 +1,5 @@
 .features-container {
-  padding: 2rem 1rem;
+  padding: .5rem 1rem;
   color: white;
   text-align: center;
   background-color: #6b6b6b;
@@ -19,11 +19,13 @@
 
     h3 {
       font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;
+      margin-top: 0;
     }
 
     p {
       font-size: 0.95rem;
+      margin-bottom: 0;
     }
   }
 }

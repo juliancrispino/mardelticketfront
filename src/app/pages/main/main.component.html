@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div *ngIf="screenState$ == ScreenState.LOGIN">
+  <app-iniciar-sesion></app-iniciar-sesion>
+</div>
+
+<div *ngIf="screenState$ == ScreenState.HOME">
+  <app-home></app-home>
+</div>
+
+<div *ngIf="screenState$ == ScreenState.REGISTER">
+  <app-registrarse></app-registrarse>
+</div>
+<app-footer></app-footer>
