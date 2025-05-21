@@ -5,9 +5,9 @@
   </div>
 
   <div *ngIf="menuAbierto" class="menu">
-    <a routerLink="/inicio" (click)="goHome()">Inicio</a>
-    <a routerLink="/crear-evento" (click)="goCreateEvent()">Crear Evento</a>
-    <a routerLink="/iniciar-sesion" (click)="goLogin()">Iniciar Sesión</a>
-    <a routerLink="/registrarse" (click)="goToRegister()" class="register">Registrarse</a>
+    <a class="menuOption" (click)="goHome()">Inicio</a>
+    <a class="menuOption" (click)="goCreateEvent()">Crear Evento</a>
+    <a class="menuOption" (click)="goLogin()">Iniciar Sesión</a>
+    <a class="menuOption" (click)="goToRegister()" class="register">Registrarse</a>
   </div>
 </header>

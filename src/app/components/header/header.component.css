@@ -38,6 +38,10 @@ header button {
   margin: 0.5rem 0;
   text-decoration: none;
   color: white;
+  cursor: pointer;
+}
+.menu a:hover{
+  color: #4f46e5;
 }
 
 .menu a.register {
