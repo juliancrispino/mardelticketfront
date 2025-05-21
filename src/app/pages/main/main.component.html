@@ -10,4 +10,8 @@
 <div *ngIf="screenState$ == ScreenState.REGISTER">
   <app-registrarse></app-registrarse>
 </div>
+
+<div *ngIf="screenState$ == ScreenState.CREATE_EVENT">
+  <app-crear-evento></app-crear-evento>
+</div>
 <app-footer></app-footer>

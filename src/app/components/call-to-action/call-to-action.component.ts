@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppNavigationLogic } from '../../logic/navigationLogic';
 
 @Component({
   selector: 'app-call-to-action',
@@ -9,4 +10,12 @@ import { Component } from '@angular/core';
 })
 export class CallToActionComponent {
 
+  constructor(
+        private appNavigation: AppNavigationLogic,
+  ){}
+
+
+    goCreateEvent() {
+    this.appNavigation.goCreateEventScreen()
+  }
 }

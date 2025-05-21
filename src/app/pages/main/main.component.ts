@@ -11,11 +11,12 @@ import { RegistrarseComponent } from "../registrarse/registrarse.component";
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from "../../components/footer/footer.component";
 import { AppModule } from '../../app.component';
+import { CrearEventoComponent } from "../crear-evento/crear-evento.component";
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [AppModule, CommonModule, IniciarSesionComponent, HomeComponent, RegistrarseComponent, HeaderComponent, FooterComponent],
+  imports: [AppModule, CommonModule, IniciarSesionComponent, HomeComponent, RegistrarseComponent, HeaderComponent, FooterComponent, CrearEventoComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })

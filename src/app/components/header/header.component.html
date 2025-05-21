@@ -1,13 +1,13 @@
 <header>
   <div class="header-container">
-    <img src="assets/logomdt.png" alt="logo mardelticket">
+    <img src="assets/logomdt.png" alt="logo mardelticket" (click)="goHome()">
     <button (click)="toggleMenu()">&#9776;</button>
   </div>
 
   <div *ngIf="menuAbierto" class="menu">
-    <a routerLink="/inicio" (click)="cerrarMenu()">Inicio</a>
-    <a routerLink="/crear-evento" (click)="cerrarMenu()">Crear Evento</a>
-    <a routerLink="/iniciar-sesion" (click)="cerrarMenu()">Iniciar Sesión</a>
-    <a routerLink="/registrarse" (click)="cerrarMenu()" class="register">Registrarse</a>
+    <a routerLink="/inicio" (click)="goHome()">Inicio</a>
+    <a routerLink="/crear-evento" (click)="goCreateEvent()">Crear Evento</a>
+    <a routerLink="/iniciar-sesion" (click)="goLogin()">Iniciar Sesión</a>
+    <a routerLink="/registrarse" (click)="goToRegister()" class="register">Registrarse</a>
   </div>
 </header>
