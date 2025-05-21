@@ -1,1 +1,70 @@
-<p>registrarse works!</p>
+<div class="container">
+    <div class="form-box">
+        <h1>Crear una cuenta</h1>
+        <p>Únete a TicketBe para comenzar a crear y vender tus eventos</p>
+
+        <form [formGroup]="form" (ngSubmit)="register()">
+
+        <!-- Nombre -->
+        <label>Nombre completo</label>
+        <input type="text" formControlName="name" placeholder="Ingresa tu nombre completo" />
+        <div class="error" *ngIf="form.get('name')?.touched && form.get('name')?.invalid">
+            El nombre es obligatorio.
+        </div>
+
+        <!-- Email -->
+        <label>Correo electrónico</label>
+        <input type="email" formControlName="email" placeholder="tucorreo@ejemplo.com" />
+        <div class="error" *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+            <div *ngIf="form.get('email')?.errors?.['required']">El correo es obligatorio.</div>
+            <div *ngIf="form.get('email')?.errors?.['email']">Formato de correo inválido.</div>
+        </div>
+
+        <!-- Contraseña -->
+        <label>Contraseña</label>
+        <div class="input-password">
+            <input
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="Ingresa tu contraseña"
+            />
+            <span (click)="hidePassword = !hidePassword">👁️</span>
+        </div>
+        <div class="error" *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+            <div *ngIf="form.get('password')?.errors?.['required']">
+                La contraseña es obligatoria.
+            </div>
+            <div *ngIf="form.get('password')?.errors?.['minlength']">
+                La contraseña debe tener al menos 8 caracteres.
+            </div>
+            <div *ngIf="form.get('password')?.errors?.['pattern']">
+                La contraseña debe contener al menos una letra mayúscula.
+            </div>
+        </div>
+
+        <!-- Confirmar contraseña -->
+        <label>Confirmar contraseña</label>
+        <div class="input-password">
+            <input
+            [type]="hideConfirm ? 'password' : 'text'"
+            formControlName="confirmPassword"
+            placeholder="Confirma tu contraseña"
+            />
+            <span (click)="hideConfirm = !hideConfirm">👁️</span>
+        </div>
+        <div class="error" *ngIf="form.get('confirmPassword')?.touched && form.get('confirmPassword')?.invalid">
+            Confirmar contraseña es obligatorio.
+        </div>
+        <div class="error" *ngIf="form.hasError('passwordMismatch') && form.get('confirmPassword')?.touched">
+            Las contraseñas no coinciden.
+        </div>
+
+        <!-- Botón -->
+        <button type="submit">👤 Registrarse</button>
+        </form>
+
+        <p class="login-link">
+        ¿Ya tienes una cuenta? <a (click)="goLogin()">Iniciar sesión</a>
+        </p>
+    </div>
+</div>
