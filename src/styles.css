@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  font-family: 'Red Hat Display', sans-serif;
+  background-color: #ffffff;
+}
+* {
+  /* outline: 1px solid red;  verás los bordes de todos los elementos */
+}

@@ -1,0 +1,50 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  background-color: #512da8;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+header .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+header img {
+  max-width: 10rem;
+}
+
+header button {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.menu {
+  background-color: #F48D25;
+  color: white;
+  padding: 1rem;
+}
+
+.menu a {
+  display: block;
+  margin: 0.5rem 0;
+  text-decoration: none;
+  color: white;
+}
+
+.menu a.register {
+  background-color: white;
+  color: #4f46e5;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  text-align: center;
+}
