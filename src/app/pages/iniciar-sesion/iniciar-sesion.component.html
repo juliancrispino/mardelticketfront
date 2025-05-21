@@ -1,1 +1,54 @@
-<p>iniciar-sesion works!</p>
+<div class="login-container">
+
+  <div class="form-card">
+    <h2>Iniciar Sesión</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <label>Correo electrónico</label>
+        <input type="email" formControlName="email" placeholder="tucorreo@ejemplo.com" />
+        <div class="error" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+            <div *ngIf="loginForm.get('email')?.errors?.['required']">El correo es obligatorio.</div>
+            <div *ngIf="loginForm.get('email')?.errors?.['email']">Formato de correo inválido.</div>
+        </div>
+
+      <label>Contraseña</label>
+        <div class="input-password">
+            <input
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="Ingresa tu contraseña"
+            />
+            <span (click)="hidePassword = !hidePassword">👁️</span>
+        </div>
+        <div class="error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+            <div *ngIf="loginForm.get('password')?.errors?.['required']">
+                La contraseña es obligatoria.
+            </div>
+            <div *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                La contraseña debe tener al menos 8 caracteres.
+            </div>
+            <div *ngIf="loginForm.get('password')?.errors?.['pattern']">
+                La contraseña debe contener al menos una letra mayúscula.
+            </div>
+        </div>
+
+      <!-- Olvidaste contraseña -->
+      <div class="forgot-password">
+        <a (click)="onForgotPassword()">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <!-- Botón Ingresar -->
+      <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+
+      <!-- Separador -->
+      <div class="divider">o</div>
+
+      <!-- Login Google -->
+      <button type="button" class="google-button" (click)="onLoginWithGoogle()">
+        <img src="assets/google-icon.png" alt="Google" />
+        Iniciar sesión con Google
+      </button>
+    </form>
+  </div>
+</div>
