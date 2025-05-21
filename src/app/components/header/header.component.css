@@ -47,4 +47,10 @@ header button {
   border-radius: 4px;
   margin-top: 1rem;
   text-align: center;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.menu a.register:hover{
+  color: white;
+  background-color: #F48D25;
 }

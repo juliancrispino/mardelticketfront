@@ -2,18 +2,20 @@
   background: #512da8;
   color: white;
   text-align: center;
-  padding: 1rem 1rem;
+  padding: 2rem 1rem;
   /* border-radius: 30px; */
 
   h2 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
   }
 
   p {
     font-size: 1rem;
     margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .primary {
@@ -23,5 +25,11 @@
     border: none;
     border-radius: 8px;
     font-weight: bold;
+    cursor: pointer;
+    border: 1px solid white;
+  }
+  .primary:hover{
+    color: white;
+    background-color:#512da8 ;
   }
 }
