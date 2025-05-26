@@ -2,15 +2,25 @@
   <div class="header-container">
     <img src="assets/logomdt.png" alt="logo mardelticket" (click)="goHome()">
     <div class="macroMenu">
-      <button (click)="goLogin()" class="btnLogin">Ingresá</button>
-      <button (click)="toggleMenu()" class="btnMenu">&#9776;</button>
+      @if (!userIdentification) {
+        <button (click)="goLogin()" class="btnLogin">Ingresá</button>
+        <button (click)="toggleMenu()" class="btnMenu">&#9776;</button>
+      } @else {
+        <h5>{{fullName}}</h5>
+        <button (click)="toggleMenu()" class="btnMenu">&#9776;</button>
+      }
     </div>
   </div>
 
   <div *ngIf="menuAbierto" class="menu">
     <a class="menuOption" (click)="goHome()">Inicio</a>
     <a class="menuOption" (click)="goCreateEvent()">Crear Evento</a>
-    <a class="menuOption" (click)="goLogin()">Iniciar Sesión</a>
-    <a class="menuOption" (click)="goToRegister()" class="register">Registrarse</a>
+    @if (!userIdentification) {
+      <a class="menuOption" (click)="goLogin()">Iniciar Sesión</a>
+      <a class="menuOption" (click)="goToRegister()" class="register">Registrarse</a>
+    } @else {
+      <a class="menuOption" (click)="logout()">Cerrar Sesión</a>
+    }
   </div>
+
 </header>

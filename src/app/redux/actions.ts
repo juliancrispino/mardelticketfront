@@ -1,4 +1,4 @@
-import {createActionGroup, props} from '@ngrx/store';
+import {createAction, createActionGroup, emptyProps, props} from '@ngrx/store';
 import {ScreenState} from "../redux/redux-state/ScreenState";
 import { SessionDataDTO } from '../dto/sessionDataDTO';
 import {UserDataDTO} from "../dto/userDataDTO";
@@ -16,5 +16,6 @@ export const DataActions = createActionGroup({
   events: {
     'setSessionDataDTO': props<{ sessionDataDTO: SessionDataDTO }>(),
     'setUserDataDTO': props<{ userDataDTO: UserDataDTO }>(),
+    'Clear Session Data': emptyProps()
   },
 });

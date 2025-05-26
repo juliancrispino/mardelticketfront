@@ -1,5 +1,6 @@
 export interface SessionDataDTO {
   userIdentification: string,
-  userName: string,
+  name: string,
+  email: string,
   authToken: string
 }

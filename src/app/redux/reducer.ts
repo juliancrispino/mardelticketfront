@@ -24,5 +24,9 @@ export const reduxReducer = createReducer(
     return ({ ...state, userDataDTO: userDataDTO });
   }
   ),
- 
+  on(DataActions.clearSessionData, (state) => ({
+    ...state,
+    sessionDataDTO: undefined
+  }))
+
 );

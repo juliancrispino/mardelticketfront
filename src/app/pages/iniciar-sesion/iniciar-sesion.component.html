@@ -39,7 +39,12 @@
       </div>
 
       <!-- Botón Ingresar -->
-      <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+       @if (!loginSpinner) {
+         <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+       }
+       @if (loginSpinner) {
+          <button type="submit" disabled><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></button>
+        }
 
       <!-- Separador -->
       <div class="divider">o</div>

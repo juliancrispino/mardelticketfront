@@ -23,21 +23,22 @@ export class SessionLogic {
   }
 
 
-  public async login(userName: string, password: string): Promise<boolean> {
+  public async login(email: string, password: string): Promise<boolean> {
     return new Promise(resolve => {
       let loginBody = {
-        "userName": userName,
+        "email": email,
         "password": password,
       }
+      console.log("BODY A MANDAR: ", loginBody)
       this.httpService.login(loginBody)
         .subscribe((response) => {
-          // console.log("response de login: ", response); //DEBUG
+          console.log("response de login: ", response); //DEBUG
           if (response.success) {    // Login SUCCESS
             let sessionDataDTO = {
               "userIdentification": response.data.id,
-              "userName": response.data.userName,
+              "name": response.data.userName,
+              "email": response.data.email,
               "authToken": response.data.token,
-              "isAdmin": response.data.admin
             }
             // Redux session data dispatch
             this.store.dispatch(DataActions.setSessionDataDTO({ sessionDataDTO: sessionDataDTO }));

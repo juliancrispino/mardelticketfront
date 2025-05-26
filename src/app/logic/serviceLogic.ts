@@ -9,6 +9,7 @@ import { SessionDataDTO } from "../dto/sessionDataDTO";
 import { AppSelectors } from "../redux/selectors";
 import { ResponseDTO } from "../dto/ResponseDTO";
 import { firstValueFrom, Observable } from "rxjs";
+import { UserDataDTO } from "../dto/userDataDTO";
 
 
 @NgModule({
@@ -27,7 +28,7 @@ export class ServiceLogic {
     // REDUX
     this.store.select(AppSelectors.selectSessionData)
       .subscribe(value => {
-        // console.log("selectSessionData: value = ", value); //DEBUG
+        console.log("selectSessionData: value = ", value); //DEBUG
         this.sessionDataDTO = value;
       })
 
@@ -57,10 +58,20 @@ export class ServiceLogic {
       return false; // Login Failure
     }
     // Login Successful
-    // Navigation to home page
     this.appNavigation.goHomeScreen();
     return true;
   }
+
+    async crearNuevoUsuario(userDataDTO: UserDataDTO): Promise<ResponseDTO> {
+    return await new Promise(resolve => {
+      this.httpService.crearNuevoUsuario(userDataDTO)
+        .subscribe((response: ResponseDTO) => {
+          console.log("response de crearNuevoUsuario: ", response); //DEBUG
+          resolve(response);
+        })
+    })
+  }
+
 
 
 

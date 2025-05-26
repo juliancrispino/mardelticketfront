@@ -70,6 +70,7 @@ header img {
   cursor: pointer;
   border: 1px solid white;
   font-size: .8rem;
+  margin-right: .8rem;
 }
 .btnLogin:hover {
   color: white;
