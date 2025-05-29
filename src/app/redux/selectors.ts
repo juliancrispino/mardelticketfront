@@ -16,6 +16,9 @@ const selectScreenState = createSelector(
 const selectSessionData = createSelector(
   selectStateModule, (state) => state.sessionDataDTO
 )
+const selectListaEventos = createSelector(
+  selectStateModule, (state) => state.listaEventosDTO
+)
 
 
 
@@ -24,4 +27,5 @@ export const AppSelectors = {
   selectUserData,
   selectScreenState,
   selectSessionData,
+  selectListaEventos,
 }

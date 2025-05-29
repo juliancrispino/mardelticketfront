@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { UserDataDTO } from "../dto/userDataDTO";
 import { ResponseDTO } from "../dto/ResponseDTO";
+import { EventoDTO } from "../dto/EventoDTO";
 
 
 
@@ -21,6 +22,15 @@ export class HttpService {
   // USUARIOS
   crearNuevoUsuario(userDataDTO: UserDataDTO): Observable<ResponseDTO> {
     return this.http.post(this.BASE_URL + "/users/register", userDataDTO);
+  }
+
+  // EVENTOS
+  crearNuevoEvento(eventoDTO: EventoDTO): Observable<ResponseDTO> {
+    console.log("EVENTO DTO HTTP: ", eventoDTO)
+    return this.http.post(this.BASE_URL + "/events/create", eventoDTO);
+  }
+  obtenerEventos(): Observable<ResponseDTO> {
+    return this.http.get(this.BASE_URL + "/events");
   }
 
 //   changePassword(editUserDTO: EditUserDTO): Observable<ResponseDTO> {

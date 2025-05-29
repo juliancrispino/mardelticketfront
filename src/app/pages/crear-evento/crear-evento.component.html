@@ -51,7 +51,7 @@
             <div class="error" *ngIf="form.get('ubicacion')?.touched && form.get('ubicacion')?.invalid">Ubicación obligatoria.</div>
         </div>
 
-        <div class="form-group" formArrayName="tiposEntrada">
+        <div class="form-group tiposEntrada" formArrayName="tiposEntrada">
             <label>🎟️ Tipos de entradas</label>
             <button class="link-button" type="button" (click)="agregarTipo()">+ Agregar tipo</button>
 

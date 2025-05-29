@@ -10,6 +10,7 @@ import { AppSelectors } from "../redux/selectors";
 import { ResponseDTO } from "../dto/ResponseDTO";
 import { firstValueFrom, Observable } from "rxjs";
 import { UserDataDTO } from "../dto/userDataDTO";
+import { EventoDTO } from "../dto/EventoDTO";
 
 
 @NgModule({
@@ -44,6 +45,7 @@ export class ServiceLogic {
 //       this.buttonLogin("user01", "1234"); // Descomentar para auto-login de prueba
     }
 
+    this.obtenerEventos();
   }
 
   public buttonLogout() {
@@ -67,6 +69,28 @@ export class ServiceLogic {
       this.httpService.crearNuevoUsuario(userDataDTO)
         .subscribe((response: ResponseDTO) => {
           console.log("response de crearNuevoUsuario: ", response); //DEBUG
+          resolve(response);
+        })
+    })
+  }
+
+  async crearNuevoEvento( eventoDTO : EventoDTO): Promise<ResponseDTO> {
+    console.log("EVENTO SERVICE: ", eventoDTO)
+    return await new Promise(resolve => {
+      this.httpService.crearNuevoEvento(eventoDTO)
+        .subscribe((response: ResponseDTO) => {
+          console.log("response de crearNuevoUsuario: ", response); //DEBUG
+          resolve(response);
+        })
+    })
+  }
+
+  async obtenerEventos(): Promise<EventoDTO[]> {
+    return await new Promise(resolve => {
+      this.httpService.obtenerEventos()
+        .subscribe((response: any) => {
+          console.log("response de obtenerEventos: ", response); //DEBUG
+           this.store.dispatch(DataActions.setListaEventosDTO({ listaEventosDTO: response }));
           resolve(response);
         })
     })

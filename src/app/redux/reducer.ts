@@ -8,6 +8,7 @@ export const initialState: StateStructure =
   screenState: ScreenState.HOME,
   sessionDataDTO: undefined,
   userDataDTO: undefined,
+  listaEventosDTO: undefined,
 };
 
 export const reduxReducer = createReducer(
@@ -22,6 +23,10 @@ export const reduxReducer = createReducer(
   ),
   on(DataActions.setUserDataDTO, (state, { userDataDTO }) => {
     return ({ ...state, userDataDTO: userDataDTO });
+  }
+  ),
+  on(DataActions.setListaEventosDTO, (state, { listaEventosDTO }) => {
+    return ({ ...state, listaEventosDTO: listaEventosDTO });
   }
   ),
   on(DataActions.clearSessionData, (state) => ({

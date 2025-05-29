@@ -88,11 +88,18 @@ textarea {
 .link-button {
   background: none;
   border: none;
-  color: #512da8;
+  color: #c0a6fd;
   cursor: pointer;
   font-size: 0.875rem;
   margin-top: 0.25rem;
   padding: 0;
+}
+.link-button:hover {
+  color: #ebe3ff;
+  font-size: 0.9rem;
+}
+.tiposEntrada{
+  margin-top: 3rem;
 }
 
 .ticket-card {
@@ -162,3 +169,4 @@ textarea {
   padding-left: 24px; /* espacio para el símbolo */
   max-width: 84%;
 }
+

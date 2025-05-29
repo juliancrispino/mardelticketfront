@@ -36,6 +36,10 @@ export class AppNavigationLogic {
     this.store.dispatch(ScreenStateActions.setScreenState({screenState: ScreenState.EVENTS}))
   }
 
+  public goEventsListScreen() {
+    this.store.dispatch(ScreenStateActions.setScreenState({screenState: ScreenState.EVENTS_LIST}))
+  }
+
   public goSuccesNotification() {
     this.store.dispatch(ScreenStateActions.setScreenState({screenState: ScreenState.SUCCES_NOTIFICATION}))
   }

@@ -2,6 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AppNavigationLogic } from '../../logic/navigationLogic';
+import { ServiceLogic } from '../../logic/serviceLogic';
+import { EventoDTO } from '../../dto/EventoDTO';
+import { Store } from '@ngrx/store';
+import { AppSelectors } from '../../redux/selectors';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-evento',
@@ -13,10 +18,27 @@ import { AppNavigationLogic } from '../../logic/navigationLogic';
 export class CrearEventoComponent {
   form: FormGroup;
   imagePreview: string | ArrayBuffer | null = null;
+  userId: string | undefined;
 
   constructor(private fb: FormBuilder,
-              private appNavigation:AppNavigationLogic
+              private appNavigation:AppNavigationLogic,
+              private serviceLogic:ServiceLogic,
+              private store: Store,
   ) {
+
+    this.store.select(AppSelectors.selectSessionData)
+      .subscribe(sessionData => {
+        this.userId = sessionData?.userIdentification;
+        console.log("USER ID: ", this.userId)
+      })
+
+    this.store.select(AppSelectors.selectListaEventos)
+      .subscribe(listaEventos => {
+        console.log("Lista evs: ", listaEventos)
+        let listaEv = listaEventos;
+    })
+
+
     this.form = this.fb.group({
       imagen: [null, Validators.required],
       titulo: ['', [Validators.required, Validators.minLength(3)]],
@@ -71,13 +93,49 @@ export class CrearEventoComponent {
       return;
     }
 
-    console.log('Formulario válido', this.form.value);
-    // Aquí podrías enviar el formulario al backend
+    // 1. Extraer valores del form
+    const { titulo, descripcion, fecha, hora, ubicacion, tiposEntrada } = this.form.value;
 
-    this.goSuccesNotification();
+    // 2. Construir la fecha en formato ISO
+    const dateIso = `${fecha}T${hora}:00`;
+
+    // 3. Obtener la URL o el Base64 de la imagen
+    //    Aquí uso la preview como Base64, pero lo ideal es subir el archivo a un storage
+    //    y usar la URL que devuelva tu endpoint de imágenes.
+    const imgUrl = typeof this.imagePreview === 'string'
+      ? "URL DE LA IMAGEN"
+      : '';
+
+    // 4. Montar el DTO
+    const eventoDTO: EventoDTO = {
+      title: titulo,
+      description: descripcion,
+      imageUrl: imgUrl,
+      date: dateIso,
+      location: ubicacion,
+      organizerId: this.userId ? this.userId : "",
+      // si necesitas enviar tipos de entrada:
+      ticketTypes: tiposEntrada.map((t: any) => ({
+        name: t.nombre,
+        price: t.precio,
+        stock: t.cantidad
+      }))
+    };
+
+    console.log('DTO a enviar:', eventoDTO);
+
+    // 5. Llamar al servicio
+    this.serviceLogic.crearNuevoEvento(eventoDTO)
+      .then(() => {
+        Swal.fire({
+                  text: 'Evento creado con exito',
+                  icon: 'success',
+                  confirmButtonText: 'Listo',
+                  confirmButtonColor: '#0F1635',
+                });
+                this.appNavigation.goHomeScreen();
+      });
   }
 
-  goSuccesNotification(){
-    this.appNavigation.goSuccesNotification();
-  }
 }
+

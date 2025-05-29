@@ -1,0 +1,21 @@
+<!-- lista-eventos.component.html -->
+<div class="container">
+    <h3>¡Tu próximo plan está acá!</h3>
+    <div class="events-grid">
+        <div class="event-card" *ngFor="let evento of listaEventos">
+            <div class="image-container">
+                <img [src]="evento.imageUrl" [alt]="evento.title" />
+            </div>
+            <div class="card-body">
+                <h3 class="title">{{ evento.title }}</h3>
+                <p class="location">📍 {{ evento.location }}</p>
+                <p class="price" *ngIf="evento.ticketTypes">
+                    Entradas desde 
+                    <strong>
+                        {{ getMinPrice(evento.ticketTypes) | currency:'ARS':'symbol':'1.0-0' }}
+                    </strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

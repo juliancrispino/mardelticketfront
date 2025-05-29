@@ -66,6 +66,11 @@ export class HeaderComponent implements OnInit{
     this.appNavigation.goCreateEventScreen()
   }
 
+  goEventsList() {
+    this.menuAbierto = false;
+    this.appNavigation.goEventsListScreen()
+  }
+
   goLogin() {
     this.menuAbierto = false;
     this.appNavigation.goLoginScreen()
