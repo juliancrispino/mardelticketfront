@@ -3,8 +3,9 @@
         <h2>Crear nuevo evento</h2>
 
 
-        
-        <div class="form-group">
+<!-- SIN RECORTE DE IMAGEN -->
+
+        <!-- <div class="form-group">
             <label>Imagen del evento *</label>
             <div class="image-upload">
             <input type="file" id="file" (change)="onFileSelected($event)" />
@@ -14,6 +15,50 @@
                 <img [src]="imagePreview" alt="Preview" />
             </div>
             <div class="error" *ngIf="form.get('imagen')?.touched && form.get('imagen')?.invalid">Imagen obligatoria</div>
+            </div>
+        </div> -->
+
+
+<!-- CON RECORTE DE IMAGEN -->
+        <div class="form-group">
+            <label>Imagen del evento *</label>
+            <div class="image-upload">
+                <!-- Input oculto que se dispara al hacer click en el label -->
+                <input
+                type="file"
+                id="file"
+                accept="image/*"
+                (change)="fileChangeEvent($event)"
+                />
+                <label for="file" class="btn">Seleccionar Imagen</label>
+                <p class="note">Recomendada: 1200 x 600 píxeles</p>
+
+                <!-- El cropper solo aparece cuando ya existe imageChangedEvent -->
+                <image-cropper
+                *ngIf="imageChangedEvent"
+                [imageChangedEvent]="imageChangedEvent"
+                [maintainAspectRatio]="true"
+                [aspectRatio]="2 / 1"
+                [resizeToWidth]="1200"
+                format="png"
+                outputType="blob"
+                (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()"
+                (cropperReady)="cropperReady()"
+                (loadImageFailed)="loadImageFailed()"
+                ></image-cropper>
+
+                <!-- Vista previa en base64 -->
+                <div *ngIf="croppedImage" class="image-preview">
+                <img [src]="croppedImage" alt="Recorte final" />
+                </div>
+
+                <div
+                class="error"
+                *ngIf="form.get('imagen')?.touched && form.get('imagen')?.invalid"
+                >
+                Imagen obligatoria
+                </div>
             </div>
         </div>
 

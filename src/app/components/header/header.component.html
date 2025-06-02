@@ -1,12 +1,14 @@
 <header>
   <div class="header-container">
-    <img src="assets/logomdt.png" alt="logo mardelticket" (click)="goHome()">
+    <img src="assets/logoSimple.png" alt="logo mardelticket" (click)="goHome()">
     <div class="macroMenu">
       @if (!userIdentification) {
         <button (click)="goLogin()" class="btnLogin">Ingresá</button>
+        <button (click)="goEventsList()" class="btnMenu">🔍</button>
         <button (click)="toggleMenu()" class="btnMenu">&#9776;</button>
       } @else {
         <h5>{{fullName}}</h5>
+        <button (click)="goEventsList()" class="btnMenu">🔍</button>
         <button (click)="toggleMenu()" class="btnMenu">&#9776;</button>
       }
     </div>
@@ -15,7 +17,7 @@
   <div *ngIf="menuAbierto" class="menu">
     <a class="menuOption" (click)="goHome()">Inicio</a>
     <a class="menuOption" (click)="goCreateEvent()">Crear Evento</a>
-    <a class="menuOption" (click)="goEventsList()">BuscarEvento</a>
+    <!-- <a class="menuOption" (click)="goEventsList()">Buscar Evento</a> -->
     @if (!userIdentification) {
       <a class="menuOption" (click)="goLogin()">Iniciar Sesión</a>
       <a class="menuOption" (click)="goToRegister()" class="register">Registrarse</a>

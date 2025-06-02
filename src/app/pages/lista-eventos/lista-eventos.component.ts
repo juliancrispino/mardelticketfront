@@ -36,5 +36,9 @@ export class ListaEventosComponent {
     return tipos.reduce((min, t) => t.price < min ? t.price : min, tipos[0]?.price ?? 0);
   }
 
+  verDetalle(evento: EventoDTO) {
+    this.appNavigation.goEventsScreen(evento)
+  }
+
 
 }

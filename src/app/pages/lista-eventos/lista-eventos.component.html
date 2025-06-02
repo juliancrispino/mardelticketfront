@@ -2,7 +2,7 @@
 <div class="container">
     <h3>¡Tu próximo plan está acá!</h3>
     <div class="events-grid">
-        <div class="event-card" *ngFor="let evento of listaEventos">
+        <div class="event-card" *ngFor="let evento of listaEventos" (click)="verDetalle(evento)">
             <div class="image-container">
                 <img [src]="evento.imageUrl" [alt]="evento.title" />
             </div>

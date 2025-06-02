@@ -1,7 +1,10 @@
 /* lista-eventos.component.css */
 .container{
-    margin-top: 6rem;
+    margin-top: 5.5rem;
     padding: 1rem;
+    background: #6b6b6b;
+    color: white;
+
 }
 .events-grid {
   display: grid;
@@ -11,9 +14,9 @@
 }
 
 .event-card {
-  background: #fff;
+  background: #6b6b6b;
   border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -37,7 +40,7 @@
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:fill;
 }
 
 .card-body {
@@ -65,5 +68,5 @@
 }
 
 .price strong {
-  color: #1a73e8;
+  color: #8abdff;
 }

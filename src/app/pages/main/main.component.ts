@@ -14,11 +14,12 @@ import { AppModule } from '../../app.component';
 import { CrearEventoComponent } from "../crear-evento/crear-evento.component";
 import { SuccesNotificationComponent } from "../../components/succes-notification/succes-notification.component";
 import { ListaEventosComponent } from "../lista-eventos/lista-eventos.component";
+import { DetalleEventoComponent } from "../detalle-evento/detalle-evento.component";
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [AppModule, CommonModule, IniciarSesionComponent, HomeComponent, RegistrarseComponent, HeaderComponent, FooterComponent, CrearEventoComponent, SuccesNotificationComponent, ListaEventosComponent],
+  imports: [AppModule, CommonModule, IniciarSesionComponent, HomeComponent, RegistrarseComponent, HeaderComponent, FooterComponent, CrearEventoComponent, SuccesNotificationComponent, ListaEventosComponent, DetalleEventoComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })

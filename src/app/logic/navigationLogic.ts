@@ -1,8 +1,9 @@
 import {NgModule} from "@angular/core";
 import {Store, StoreModule} from "@ngrx/store";
-import {ScreenStateActions} from "../redux/actions";
+import {DataActions, ScreenStateActions} from "../redux/actions";
 import {reduxReducer} from "../redux/reducer";
 import {ScreenState} from "../redux/redux-state/ScreenState";
+import { EventoDTO } from "../dto/EventoDTO";
 
 
 @NgModule({
@@ -32,7 +33,8 @@ export class AppNavigationLogic {
     this.store.dispatch(ScreenStateActions.setScreenState({screenState: ScreenState.CREATE_EVENT}))
   }
 
-  public goEventsScreen() {
+  public goEventsScreen(evento: EventoDTO) {
+    this.store.dispatch(DataActions.setEventoDTO({ eventoDTO : evento }));
     this.store.dispatch(ScreenStateActions.setScreenState({screenState: ScreenState.EVENTS}))
   }
 

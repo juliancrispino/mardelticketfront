@@ -29,6 +29,10 @@ export const reduxReducer = createReducer(
     return ({ ...state, listaEventosDTO: listaEventosDTO });
   }
   ),
+  on(DataActions.setEventoDTO, (state, { eventoDTO }) => {
+    return ({ ...state, eventoDTO: eventoDTO });
+  }
+  ),
   on(DataActions.clearSessionData, (state) => ({
     ...state,
     sessionDataDTO: undefined

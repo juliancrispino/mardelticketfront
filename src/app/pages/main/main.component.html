@@ -19,6 +19,11 @@
   <app-lista-eventos></app-lista-eventos>
 </div>
 
+
+<div *ngIf="screenState$ == ScreenState.EVENTS">
+  <app-detalle-evento></app-detalle-evento>
+</div>
+
 <div *ngIf="screenState$ == ScreenState.SUCCES_NOTIFICATION">
   <app-succes-notification></app-succes-notification>
 </div>

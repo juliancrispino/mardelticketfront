@@ -1,0 +1,48 @@
+<div class="container-detalle">
+
+  <div class="detalle-card">
+    <!-- 1) Imagen de portada -->
+    <div class="image-wrapper">
+      <img [src]="eventoDTO?.imageUrl" [alt]="eventoDTO?.title" />
+    </div>
+
+    <!-- 2) Título y ubicación -->
+    <h1 class="titulo">{{ eventoDTO?.title }}</h1>
+    <p class="ubicacion">📍 {{ eventoDTO?.location }}</p>
+
+    <!-- 3) Fecha y hora formateada -->
+    <p class="fecha-hora">📅 {{ fechaFormateada }}</p>
+
+    <!-- 4) Descripción completa -->
+    <div class="descripcion">
+      <h3>Descripción</h3>
+      <p>{{ eventoDTO?.description }}</p>
+    </div>
+
+    <!-- 5) Lista de tipos de ticket -->
+    <div class="tickets-seccion" *ngIf="eventoDTO?.ticketTypes?.length">
+      <h3>Tipos de entradas</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of eventoDTO?.ticketTypes">
+            <td ngClass="{{t.stock == 0 ? 'tachado' : ''}}">{{ t.name }}</td>
+            <td ngClass="{{t.stock == 0 ? 'tachado' : ''}}">{{ t.price | currency:'AR$ ':'symbol':'1.0-0' }}</td>
+            <td ngClass="{{t.stock == 0 ? 'tachado' : ''}}">{{ t.stock }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 6) Botón para comprar -->
+    <button class="comprar-btn" (click)="comprarEntradas()">
+      Comprar Entradas
+    </button>
+  </div>
+</div>
