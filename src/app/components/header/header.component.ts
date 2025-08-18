@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit{
   
   public goMisEventos(){
     this.menuAbierto = false;
-    alert("MIS EVENTOS")
+    this.appNavigation.goMyEvents();
   }
 
   public goMisTickets(){

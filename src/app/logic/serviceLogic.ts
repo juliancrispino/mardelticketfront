@@ -109,9 +109,9 @@ export class ServiceLogic {
 
   
 
-  async obtenerEventosDeUsuario(email:string): Promise<EventoDTO[]> {
+  async obtenerEventosDeUsuario(userID:string): Promise<EventoDTO[]> {
     return await new Promise(resolve => {
-      this.httpService.obtenerEventosDeUsuario(email)
+      this.httpService.obtenerEventosDeUsuario(userID)
         .subscribe((response: any) => {
           console.log("response de obtenerEventosDeUsuario: ", response); //DEBUG
            this.store.dispatch(DataActions.setListaEventosDeUsuarioDTO({ listaEventosDTO: response }));

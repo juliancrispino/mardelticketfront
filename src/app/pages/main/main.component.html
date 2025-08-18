@@ -27,6 +27,11 @@
   <app-compra-entrada></app-compra-entrada>
 </div>
 
+
+<div *ngIf="screenState$ == ScreenState.MY_EVENTS">
+  <app-mis-eventos></app-mis-eventos>
+</div>
+
 <div *ngIf="screenState$ == ScreenState.SUCCES_NOTIFICATION">
   <app-succes-notification></app-succes-notification>
 </div>

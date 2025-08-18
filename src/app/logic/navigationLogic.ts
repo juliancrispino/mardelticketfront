@@ -50,5 +50,9 @@ export class AppNavigationLogic {
     this.store.dispatch(ScreenStateActions.setScreenState({screenState: ScreenState.BUY_TICKET}))
   }
 
+  public goMyEvents() {
+    this.store.dispatch(ScreenStateActions.setScreenState({screenState: ScreenState.MY_EVENTS}))
+  }
+
 
 }

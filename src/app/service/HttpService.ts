@@ -33,8 +33,8 @@ export class HttpService {
   obtenerEventos(): Observable<ResponseDTO> {
     return this.http.get(this.BASE_URL + "/events");
   }
-  obtenerEventosDeUsuario(email:string): Observable<ResponseDTO> {
-    return this.http.get(this.BASE_URL + "/events/" + email);
+  obtenerEventosDeUsuario(userID:string): Observable<ResponseDTO> {
+    return this.http.get(this.BASE_URL + "/events/organizer/" + userID);
   }
 
     // COMPRAS
