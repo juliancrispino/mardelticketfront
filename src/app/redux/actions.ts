@@ -19,6 +19,7 @@ export const DataActions = createActionGroup({
     'setUserDataDTO': props<{ userDataDTO: UserDataDTO }>(),
     'Clear Session Data': emptyProps(),
     'setListaEventosDTO': props<{ listaEventosDTO: EventoDTO[] }>(),
+    'setListaEventosDeUsuarioDTO': props<{ listaEventosDTO: EventoDTO[] }>(),
     'setEventoDTO': props<{ eventoDTO: EventoDTO }>(),
   },
 });

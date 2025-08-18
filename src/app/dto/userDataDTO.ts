@@ -1,4 +1,5 @@
 export interface UserDataDTO {
+  id:string,
   fullName: string,
   // surname: string,
   // dateOfBirthday: string,

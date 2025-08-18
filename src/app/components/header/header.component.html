@@ -22,6 +22,8 @@
       <a class="menuOption" (click)="goLogin()">Iniciar Sesión</a>
       <a class="menuOption" (click)="goToRegister()" class="register">Registrarse</a>
     } @else {
+      <a class="menuOption" (click)="goMisTickets()">Mis tickets</a>
+      <a class="menuOption" (click)="goMisEventos()">Mis eventos creados</a>
       <a class="menuOption" (click)="logout()">Cerrar Sesión</a>
     }
   </div>

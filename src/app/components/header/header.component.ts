@@ -39,6 +39,15 @@ export class HeaderComponent implements OnInit{
       });
   }
   
+  public goMisEventos(){
+    this.menuAbierto = false;
+    alert("MIS EVENTOS")
+  }
+
+  public goMisTickets(){
+    this.menuAbierto = false;
+    alert("MIS TICKETS")
+  }
 
   public logout() {
     this.menuAbierto = false;

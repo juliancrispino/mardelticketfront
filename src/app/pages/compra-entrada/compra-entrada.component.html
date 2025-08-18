@@ -1,0 +1,36 @@
+<div class="compra-container" *ngIf="evento">
+  <h2>{{ evento?.title }}</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of evento.ticketTypes">
+        <td ngClass="{{t.stock == 0 ? 'tachado' : ''}}">{{ t.name }}</td>
+        <td ngClass="{{t.stock == 0 ? 'tachado' : ''}}">{{ t.price | currency: 'AR$ ' }}</td>
+        <td ngClass="{{t.stock == 0 ? 'tachado' : ''}}">{{ t.stock }}</td>
+        <td [ngClass]="{ 'tachado': t.stock === 0, 'excede-stock': cantidades[t.name] > t.stock }">
+            <input type="number" min="0" [max]="t.stock"
+                [value]="cantidades[t.name] || 0"
+                [disabled]="t.stock === 0"
+                (input)="actualizarCantidad(t.name, t.price, $any($event.target).valueAsNumber)" />
+        </td>
+      </tr>
+    </tbody>
+</table>
+<small *ngIf="showError" style="color: #e79797">Debe seleccionar una cantidad menor al stock</small>
+
+  <div class="resumen">
+    <p><strong>Total:</strong> <br> {{ total | currency: 'AR$ ' }}</p>
+    <div class="buttons">
+        <button (click)="procederAlPago()" [disabled]="total === 0 || showError">Ir a pagar</button>
+        <button (click)="volver()">Cancelar</button>
+    </div>
+  </div>
+</div>

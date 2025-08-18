@@ -11,6 +11,7 @@ import { ResponseDTO } from "../dto/ResponseDTO";
 import { firstValueFrom, Observable } from "rxjs";
 import { UserDataDTO } from "../dto/userDataDTO";
 import { EventoDTO } from "../dto/EventoDTO";
+import { CompraRequestDTO } from "../dto/CompraRequestDTO";
 
 
 @NgModule({
@@ -96,7 +97,28 @@ export class ServiceLogic {
     })
   }
 
+  async nuevaCompra(compraRequestDTO: CompraRequestDTO): Promise<ResponseDTO> {
+    return await new Promise(resolve => {
+      this.httpService.comprarEntradas(compraRequestDTO)
+        .subscribe((response: ResponseDTO) => {
+          console.log("response de nuevaCompra: ", response); //DEBUG
+          resolve(response);
+        })
+    })
+  }
 
+  
+
+  async obtenerEventosDeUsuario(email:string): Promise<EventoDTO[]> {
+    return await new Promise(resolve => {
+      this.httpService.obtenerEventosDeUsuario(email)
+        .subscribe((response: any) => {
+          console.log("response de obtenerEventosDeUsuario: ", response); //DEBUG
+           this.store.dispatch(DataActions.setListaEventosDeUsuarioDTO({ listaEventosDTO: response }));
+          resolve(response);
+        })
+    })
+  }
 
 
 

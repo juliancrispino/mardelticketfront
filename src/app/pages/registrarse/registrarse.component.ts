@@ -41,6 +41,7 @@ export class RegistrarseComponent {
     this.form.markAllAsTouched(); // para mostrar errores si se hace submit sin tocar campos
     if (this.form.valid) {
       let newUser:UserDataDTO = {
+        id:"",
         fullName : this.form.value.name ? this.form.value.name : '',
         email : this.form.value.email ? this.form.value.email : '',
         password : this.form.value.password ? this.form.value.password : ''

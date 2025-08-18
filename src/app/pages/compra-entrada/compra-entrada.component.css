@@ -1,0 +1,55 @@
+.compra-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  padding-top: 6rem;
+  background: #6b6b6b;
+  color: white;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+th, td {
+  border: 1px solid #444;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+input[type="number"] {
+  width: 60px;
+}
+
+.resumen {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+button {
+  background-color: #8abdff;
+  color: #0f1635;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+.tachado{
+    text-decoration-line: line-through;
+    color: #919191;
+}
+.buttons button{
+    margin: 1rem;
+}
+.excede-stock input {
+  border: 2px solid red;
+}

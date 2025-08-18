@@ -11,6 +11,7 @@ export interface StateStructure {
   sessionDataDTO?: SessionDataDTO,
   userDataDTO?: UserDataDTO,
   listaEventosDTO?: EventoDTO[],
+  listaEventosDeUsuarioDTO?: EventoDTO[],
   eventoDTO?: EventoDTO,
 
   // APP

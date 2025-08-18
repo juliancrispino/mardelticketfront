@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { UserDataDTO } from "../dto/userDataDTO";
 import { ResponseDTO } from "../dto/ResponseDTO";
 import { EventoDTO } from "../dto/EventoDTO";
+import { CompraRequestDTO } from "../dto/CompraRequestDTO";
 
 
 
@@ -31,6 +32,15 @@ export class HttpService {
   }
   obtenerEventos(): Observable<ResponseDTO> {
     return this.http.get(this.BASE_URL + "/events");
+  }
+  obtenerEventosDeUsuario(email:string): Observable<ResponseDTO> {
+    return this.http.get(this.BASE_URL + "/events/" + email);
+  }
+
+    // COMPRAS
+  comprarEntradas(compraRequestDTO: CompraRequestDTO): Observable<ResponseDTO> {
+    console.log("Compra DTO: ", compraRequestDTO)
+    return this.http.post(this.BASE_URL + "/compras/nuevaCompra", compraRequestDTO);
   }
 
 //   changePassword(editUserDTO: EditUserDTO): Observable<ResponseDTO> {

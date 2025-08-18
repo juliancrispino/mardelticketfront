@@ -44,10 +44,7 @@ constructor(private appNavigation:AppNavigationLogic,
     ) as string;
   }
 
-    comprarEntradas() {
-    // Por ahora solo redirigimos a un placeholder o logueamos.
-    // En una implementación real podrías abrir un modal o llevar
-    // al usuario a un checkout/funnel de pago.
-    alert(`Comprar entradas para "${this.eventoDTO?.title}"`);
+  comprarEntradas() {
+    this.appNavigation.goBuyTicketScree();
   }
 }

@@ -190,7 +190,8 @@ export class CrearEventoComponent {
         name: t.nombre,
         price: t.precio,
         stock: t.cantidad
-      }))
+      })),
+      id: 0
     };
 
     // 3) Enviar al backend

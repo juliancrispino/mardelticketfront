@@ -19,9 +19,12 @@
   <app-lista-eventos></app-lista-eventos>
 </div>
 
-
 <div *ngIf="screenState$ == ScreenState.EVENTS">
   <app-detalle-evento></app-detalle-evento>
+</div>
+
+<div *ngIf="screenState$ == ScreenState.BUY_TICKET">
+  <app-compra-entrada></app-compra-entrada>
 </div>
 
 <div *ngIf="screenState$ == ScreenState.SUCCES_NOTIFICATION">

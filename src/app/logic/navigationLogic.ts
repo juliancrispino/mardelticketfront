@@ -46,5 +46,9 @@ export class AppNavigationLogic {
     this.store.dispatch(ScreenStateActions.setScreenState({screenState: ScreenState.SUCCES_NOTIFICATION}))
   }
 
+  public goBuyTicketScree() {
+    this.store.dispatch(ScreenStateActions.setScreenState({screenState: ScreenState.BUY_TICKET}))
+  }
+
 
 }
